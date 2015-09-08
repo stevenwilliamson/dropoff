@@ -8,6 +8,7 @@ install_prefix?=/share/dropoff
 package_name?=dropoff
 package_version?=0.1
 iteration?=nb1
+pkgsrc_prefix?=/opt/local
 
 PKG_FILES=BUILD_INFO COMMENT DESC
 
@@ -21,7 +22,7 @@ package: clean bundle install
 	mkdir -p ${DESTDIR}
 	cd ${DESTDIR}
 	cd ${DESTDIR} && find ./ -type f -or -type l | 		sort > ${.CURDIR}/PLIST
-	pkg_create -B ./BUILD_INFO -c ./COMMENT -d ./DESC -f ./PLIST -I / -p ${DESTDIR} -U ${package_name}-${package_version}${iteration}.tgz
+	pkg_create -B ./BUILD_INFO -c ./COMMENT -d ./DESC -f ./PLIST -I ${pkgsrc_prefix} -p ${DESTDIR} -U ${package_name}-${package_version}${iteration}.tgz
 
 bundle-test:
 	bundle install --deployment --with test
@@ -31,7 +32,7 @@ bundle:
 
 install:
 	mkdir -p $(DESTDIR)$(install_prefix)
-	cp -pR Gemfile Gemfile.lock lib spec .ruby-version .bundle vendor $(DESTDIR)$(install_prefix)/
+	cp -pR Gemfile Gemfile.lock lib spec .ruby-version .bundle vendor rack.ru $(DESTDIR)$(install_prefix)/
 
 clean:
 	rm -rf vendor/
