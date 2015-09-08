@@ -1,0 +1,4 @@
+Dropoff is a simple web daemon for securely storing
+log files. It expects a logfile to be sent via HTTP POST.
+It will then store the log file using it's original name +
+a SHA of it's content.
