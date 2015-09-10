@@ -7,7 +7,7 @@ app = proc do |env|
   # If a POST, store the file
   if req.post?
     lv = LogVault.new
-    lv.save(req.params["logfile"][:tempfile], req.params["logfile"][:filename], req.host)
+    lv.save(req.params["logfile"][:tempfile], req.params["logfile"][:filename], req.ip)
     resp.write("stored")
   else
     resp.write("POST only with file param named logfile")
