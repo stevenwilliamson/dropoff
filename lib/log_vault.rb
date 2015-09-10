@@ -58,7 +58,7 @@ class LogVault
     # make sure it exists if not create it
     FileUtils.mkdir_p(destination_path) unless Dir.exists?(destination_path)
 
-    File.rename(sourcepath, File.join(destination_path, saved_file_name))
+    FileUtils.mv(sourcepath, File.join(destination_path, saved_file_name))
   end
 
 end
