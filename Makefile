@@ -22,7 +22,7 @@ package: clean bundle install
 	mkdir -p ${DESTDIR}
 	cd ${DESTDIR}
 	cd ${DESTDIR} && find ./ -type f -or -type l | 		sort > ${.CURDIR}/PLIST
-	pkg_create -B ./BUILD_INFO -c ./COMMENT -d ./DESC -f ./PLIST -I ${pkgsrc_prefix} -p ${DESTDIR} -U ${package_name}-${package_version}${iteration}.tgz
+	${pkgsrc_prefix}/sbin/pkg_create -B ./BUILD_INFO -c ./COMMENT -d ./DESC -f ./PLIST -I ${pkgsrc_prefix} -p ${DESTDIR} -U ${package_name}-${package_version}${iteration}.tgz
 
 bundle-test:
 	bundle install --deployment --with test

@@ -1,0 +1,25 @@
+## Building A Package
+
+### SmartOS
+
+* Create a SmartOS zone (use puppet and ensure the host runs at least standard.pp).
+
+* install deps
+
+```
+sudo pkgin in freeagentruby216 chruby git-base gcc47 pkg_developer
+chruby 2.1.6
+gem install bundler
+```
+
+* clone this repo
+
+```
+git clone git@github.com:stevenwilliamson/dropoff
+```
+
+* Run BSD make
+
+```
+DESTDIR=/tmp make package
+```
