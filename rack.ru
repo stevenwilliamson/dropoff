@@ -16,6 +16,7 @@ app = proc do |env|
     lv.save(req.params["logfile"][:tempfile], req.params["logfile"][:filename], req.ip)
     resp.write("stored")
   else
+    resp.status = 400
     resp.write("POST only with file param named logfile")
   end
   resp.finish

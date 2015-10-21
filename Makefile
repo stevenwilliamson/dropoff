@@ -6,7 +6,7 @@
 # package the result
 install_prefix?=/share/dropoff
 package_name?=dropoff
-package_version?=0.1
+package_version?=0.2
 iteration?=nb1
 pkgsrc_prefix?=/opt/local
 
